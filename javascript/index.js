@@ -108,4 +108,14 @@ const updtade = function(modifier){
     if(39 in keysDown){
         hero.x += hero.speed * modifier;
     }
+
+    //se os personagem se encostarem?
+    if(
+         hero.x <= (monster.x + 32)
+         && monster.x <= (hero.x + 32)
+         && hero.y <= (monster.y + 32)
+         && monster.y <= (hero.y + 32)
+    ){
+        ++monstersCaught;
+    }
 };
