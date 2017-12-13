@@ -1,43 +1,45 @@
+'use strict';
+
 // Cria o canvas
-const canvas = document.createElement('canvas');
-const ctx = canvas.getContext('2d');
+var canvas = document.createElement('canvas');
+var ctx = canvas.getContext('2d');
 canvas.width = 512;
 canvas.height = 480;
 document.body.appendChild(canvas);
 
 // Imagem de fundo
-let bgReady = false;
-const bgImage = new Image();
+var bgReady = false;
+var bgImage = new Image();
 bgImage.onload = function () {
   bgReady = true;
 };
 bgImage.src = 'images/background.png';
 
 // Imagem do herói
-let heroReady = false;
-const heroImage = new Image();
+var heroReady = false;
+var heroImage = new Image();
 heroImage.onload = function () {
   heroReady = true;
 };
 heroImage.src = 'images/hero.png';
 
 // Imagem do monstro
-let monsterReady = false;
-const monsterImage = new Image();
+var monsterReady = false;
+var monsterImage = new Image();
 monsterImage.onload = function () {
   monsterReady = true;
 };
 monsterImage.src = 'images/monster.png';
 
 // Objetos do jogo
-const hero = {
+var hero = {
   speed: 256 // movimento em pixels por segundo
 };
-const monster = {};
-let monstersCaught = 0;
+var monster = {};
+var monstersCaught = 0;
 
 // Controle do teclado
-const keysDown = {};
+var keysDown = {};
 
 window.addEventListener('keydown', function (e) {
   keysDown[e.keyCode] = true;
@@ -48,44 +50,43 @@ window.addEventListener('keyup', function (e) {
 }, false);
 
 // Reseta o jogo quando o jogador pega o monstro
-const reset = function () {
+var reset = function reset() {
   hero.x = canvas.width / 2;
   hero.y = canvas.height / 2;
 
   // Posiciona o monstro randomicamente na tela
-  monster.x = 32 + (Math.random() * (canvas.width - 64));
-  monster.y = 32 + (Math.random() * (canvas.height - 64));
+  monster.x = 32 + Math.random() * (canvas.width - 64);
+  monster.y = 32 + Math.random() * (canvas.height - 64);
 };
 
 // Atualiza os objetos do jogo
-const update = function (modifier) {
-  if (38 in keysDown) { // Pressionando a seta pra cima
+var update = function update(modifier) {
+  if (38 in keysDown) {
+    // Pressionando a seta pra cima
     hero.y -= hero.speed * modifier;
   }
-  if (40 in keysDown) { // Pressionando a seta pra baixo
+  if (40 in keysDown) {
+    // Pressionando a seta pra baixo
     hero.y += hero.speed * modifier;
   }
-  if (37 in keysDown) { // Pressionando a seta pra esquerda
+  if (37 in keysDown) {
+    // Pressionando a seta pra esquerda
     hero.x -= hero.speed * modifier;
   }
-  if (39 in keysDown) { // Pressionando a seta pra direita
+  if (39 in keysDown) {
+    // Pressionando a seta pra direita
     hero.x += hero.speed * modifier;
   }
 
   // Os personagens se encostaram?
-  if (
-    hero.x <= (monster.x + 32)
-    && monster.x <= (hero.x + 32)
-    && hero.y <= (monster.y + 32)
-    && monster.y <= (hero.y + 32)
-  ) {
+  if (hero.x <= monster.x + 32 && monster.x <= hero.x + 32 && hero.y <= monster.y + 32 && monster.y <= hero.y + 32) {
     ++monstersCaught;
     reset();
   }
 };
 
 // Renderiza tudo
-const render = function () {
+var render = function render() {
   if (bgReady) {
     ctx.drawImage(bgImage, 0, 0);
   }
@@ -107,9 +108,9 @@ const render = function () {
 };
 
 // Controla o loop do jogo
-const main = function () {
-  const now = Date.now(); 
-  const delta = now - then;
+var main = function main() {
+  var now = Date.now();
+  var delta = now - then;
 
   update(delta / 1000);
   render();
@@ -121,10 +122,10 @@ const main = function () {
 };
 
 // Suporte cross-browser para requestAnimationFrame
-const w = window;
-const requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+var w = window;
+var requestAnimationFrame = w.requestAnimationFrame || w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
 // Que comece o jogo!
-let then = Date.now();
+var then = Date.now();
 reset();
 main();
