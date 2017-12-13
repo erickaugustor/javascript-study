@@ -119,3 +119,51 @@ const updtade = function(modifier){
         ++monstersCaught;
     }
 };
+
+
+//RENDERIZAR A TELAAAAAA
+const render = function(){
+    if(bgReady){
+        ctx.drawImage(bgImage, 0, 0);
+    }
+
+    if(heroiReady){
+        ctx.drawImage(heroImage, hero.x, hero.y);
+    }
+    
+    if(monsterReady){
+        ctx.drawImage(heroImage, monster.x, monster.y);
+    }
+
+    ctx.fillStyle = 'rgb(250, 250, 250, 250)';
+    ctx.font = '24px Helvetica';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.fillText('Monstro capturados: ' + monstersCaught, 32, 32);
+};
+
+
+
+
+//Loop infinito
+const main = function(){
+    const now = Date.now();
+    //then não existe ainda, mas sua atribuição subirá
+    const delta = now - then;
+
+    update(delta/1000);    // 2000/1000 = 2
+    render();
+
+    then = now;
+
+    requestAnimationFrame(main);
+};
+
+//Animação para cada um dos navegadores
+const w = window;
+const requestAnimationFrame = w.requestAnimationFrame|| w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
+
+let then = Date.now();
+reset();
+main();
+
