@@ -54,4 +54,38 @@
     document.write(nome.toLowerCase() + '<br>');
     document.write(nome.toUpperCase() + '<br>');
 
+
+    boolean
+    false = 0, -0, [], {}, NaN, null, undefined, ''
+
+    document.write((10 == '10') + '<br>');  compara o valor
+    document.write((10 === '10') + '<br>'); compara os tipos tamem
+
+    let lista = ['leite', 'água', 'refrigerante'];
+    document.write(lista.length);
+    document.write(lista[1]);
+
+    lista.pop();
+    lista.shift();
+    lista.unshift();
+    lista.push();
+    lista.splice();
+
+
+    for(let i = 0; i < 10; i++){
+        if(i===3){
+            continue;
+        }
+        document.write(i+'<br>');
+    }
+
+    swith(idade){
+        case 17:
+            drocument.write('tem17!' + '<br>');
+            break;
+        default:
+            document.write('Não sei!' + '<br>');
+            break;
+    }
+
 */
