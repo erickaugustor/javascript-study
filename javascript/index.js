@@ -61,6 +61,51 @@ let monstersCaught = 0;
 const keysDown = {};
 
 //window é quase o document, é pro escopo global do DOM, todos os eventos da janela
+//passando o proprio evento pela função
+//o e é o evento
+//keysdown é o objeto, e ele adiciona a propriedade, depois do momento da criação
+//notação [] 
+//propriedade keyCode
 window.addEventListener('keydown', function(e){
     keysDown[e.keyCode] = true;
+    //ele pega o codigo da tecla que está digitando
+    //ele pega o código da tecla
+    //dependendo da tecla, ele vai atribuir o valor para true
+    //ele está apertando a tecla mesmo
 }, false);
+
+window.addEventListener('keyup', function(e){
+    delete keysDown[e.keyCode];
+    //quando eu soltar, ele vai deletar o evento da tecla
+}, false);
+
+
+
+//Resetar o jogo quando for pego o monstro
+//expressão de função
+const reset = function(){
+    hero.x = canvas.width/2;
+    hero.y = canvas.height/2;
+
+    monster.x = 32 + (Math.random() * (canvas.width - 64));
+    monster.y = 32 + (Math.random() * (canvas.width - 64));
+};
+
+
+//Atualizar objeto do jogo
+//quando a função for chamada, o modifier, receberá valor de calculo, que atualizara o tempo
+const updtade = function(modifier){
+    //cada tecla tem um valor, 38 é um valor da seta
+    if(38 in keysDown){ 
+        hero.y -= hero.speed * modifier;
+    }
+    if(40 in keysDown){
+        hero.y += hero.speed * modifier;
+    }
+    if(37 in keysDown){
+        hero.x -= hero.speed * modifier;
+    }
+    if(39 in keysDown){
+        hero.x += hero.speed * modifier;
+    }
+};
