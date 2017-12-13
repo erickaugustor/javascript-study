@@ -88,4 +88,56 @@
             break;
     }
 
+
+
+    let obj = {
+        cor: 'preto',
+        marca: 'BIC'
+    };
+
+    obj['marca'] = 'bic';
+    obj.cor = 'azul';
+    document.write(obj.cor);
+
+
+
+    let caneta = {};
+    caneta['cor da caneta'] = 'azul';
+    document.write(caneta['cor da caneta']);
+
+
+    let caneta = {
+        cor: 'preta',
+        minhaCor: funcion(){
+            return 'Minha cor é ' + this.cor;
+        }
+    };
+
+    document.write(caneta.minhaCor());
+
+
+
+    function quadrado(a){
+        return a*a;
+    }
+
+    document.write(quadrado(2) + '<br>');
+
+    Expressão de função
+
+    let soma = function (num1, num2){
+        return num1 + num2;
+    }
+
+    document.write(soma(8,12) + '<br>');
+
+
+
+
+    let quadrado = num =>{
+        return num * num;
+    }
+
+    document.write(quadrado(2) + '<br>');
+
 */
