@@ -156,6 +156,7 @@ const main = function(){
 
     then = now;
 
+    //chama a main rapidamente
     requestAnimationFrame(main);
 };
 
@@ -163,7 +164,9 @@ const main = function(){
 const w = window;
 const requestAnimationFrame = w.requestAnimationFrame|| w.webkitRequestAnimationFrame || w.msRequestAnimationFrame || w.mozRequestAnimationFrame;
 
+//primeira rodada do jogo
 let then = Date.now();
+
 reset();
 main();
 
