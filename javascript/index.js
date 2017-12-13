@@ -1,143 +1,66 @@
-/*
-    Estudo de JavaScript: 
-
-    Variáveis sem tipagem!
-    Sensitive case!
-    Se não atribuir valor para variável: undefined!
-
-    const name = 'hi';
-    document.write(name);
-
-    Hoisting:
-    Usar a variável antes de coloca, ele coloca para cima todas as declarações de variáveis, e manter a atribuição de valor onde estava definida a variável!
-
-    let a = 1;
-    document.write(a);
-
-    O let respeita o escopo da estrutura:
-
-    {
-        let b = 2;
-    }
-
-    document.write(b);     
-
-    Resultado: undefined!
-
-    Obs: se fosse o var, ele printaria. 
-
-    * const a = 1;
-    a constante não muda o valor.
-
-    * Números:
-    let num - 1.234;
-    let num2 = num.toFixed(2);
-
-    type of num2 é uma string!  :O
-
-
-    let num1 = 2;
-    let num2 = '3';
-    document.write(num1/num2);  ele irá realizar a conta, mesmo sendo string
-    document.write(num1 + num2); ele irá concaternar, como se fossem strings
-    document.write(num1 + Number(num2)); irá somar
-    document.write(num1 + +num2); irá somar
-
-
-    let nome = 'Erick "Legal" ';
-    let nome = 'Erick \'Legal\'';
-
-    document.write(nome + '<br>');
-    document.write(nome.length + '<br>');
-    document.write(nome.charAt(2) + '<br>');
-    document.write(nome.substring(0,3) + '<br>'); irá mostrar as 3 primeiras letras da string
-    document.write(nome.toLowerCase() + '<br>');
-    document.write(nome.toUpperCase() + '<br>');
-
-
-    boolean
-    false = 0, -0, [], {}, NaN, null, undefined, ''
-
-    document.write((10 == '10') + '<br>');  compara o valor
-    document.write((10 === '10') + '<br>'); compara os tipos tamem
-
-    let lista = ['leite', 'água', 'refrigerante'];
-    document.write(lista.length);
-    document.write(lista[1]);
-
-    lista.pop();
-    lista.shift();
-    lista.unshift();
-    lista.push();
-    lista.splice();
-
-
-    for(let i = 0; i < 10; i++){
-        if(i===3){
-            continue;
-        }
-        document.write(i+'<br>');
-    }
-
-    swith(idade){
-        case 17:
-            drocument.write('tem17!' + '<br>');
-            break;
-        default:
-            document.write('Não sei!' + '<br>');
-            break;
-    }
+//Criando o canvas
+const canvas = document.createElement('canvas');
+const ctx = canvas.getContext('2d');
+canvas.width = 512;
+canvas.height = 480;
+document.body.appendChild(canvas);
 
 
 
-    let obj = {
-        cor: 'preto',
-        marca: 'BIC'
-    };
+//setando imagem do fundo
+let bgReady = false;
+const bgImage = new Image();
 
-    obj['marca'] = 'bic';
-    obj.cor = 'azul';
-    document.write(obj.cor);
+//evento de onload, quando carregar, colocar true.
+bgImage.onload = function(){
+    bgReady = true;
+};
 
-
-
-    let caneta = {};
-    caneta['cor da caneta'] = 'azul';
-    document.write(caneta['cor da caneta']);
-
-
-    let caneta = {
-        cor: 'preta',
-        minhaCor: funcion(){
-            return 'Minha cor é ' + this.cor;
-        }
-    };
-
-    document.write(caneta.minhaCor());
+bgImage.src = 'images/background.png';
 
 
 
-    function quadrado(a){
-        return a*a;
-    }
+//Imagem do herói
+let heroiReady = false;
+const heroImage = new Image();
 
-    document.write(quadrado(2) + '<br>');
+//quando carregar
+heroImage.onload = function(){
+    heroiReady = true;
+}
 
-    Expressão de função
-
-    let soma = function (num1, num2){
-        return num1 + num2;
-    }
-
-    document.write(soma(8,12) + '<br>');
+heroImage.src = 'images/hero.png';
 
 
 
 
-    let quadrado = num =>{
-        return num * num;
-    }
+//Imagem do monstro
+let monsterReady = false;
+const monsterImage = new Image();
 
-    document.write(quadrado(2) + '<br>');
+monsterImage.onload = function(){
+    monsterImage = true;
+}
 
-*/
+monsterImage.src = 'images/monster.png';
+
+
+
+//Objetos do jogo
+const hero = {
+    speed: 256 //movimento de pixels por segundo
+};
+
+const monster = {};
+
+let monstersCaught = 0;
+
+
+
+//Eventos do teclado
+const keysDown = {};
+
+//window é quase o document, é pro escopo global do DOM, todos os eventos da janela
+window.addEventListener('keydown', function(e){
+    keysDown[e.keyCode] = true;
+}, false);
