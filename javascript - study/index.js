@@ -14,7 +14,7 @@ function relogio(){
     segundos = "0"+segundos;
   }
 
-  document.getElementById("relogio").innerHTML=horas+":"+minutos+":"+segundos;
+  document.getElementById("relogio").innerHTML="HORÁRIO<BR>"+horas+":"+minutos+":"+segundos;
 }
 
 window.setInterval("relogio()", 1000);
