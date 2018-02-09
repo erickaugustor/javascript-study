@@ -1,8 +1,8 @@
 console.log('Starting notes.js');
+console.log('---------------------');
+console.log('---------------------');
 
 const fs = require('fs');
-
-
 
 
 /*
@@ -62,6 +62,7 @@ var getAll = () => {
     console.log('Getting all notes');
     console.log('---------------------');
 
+    return fetchNotes();
 
 };
 
@@ -105,8 +106,8 @@ var removeNote = (title) => {
 
 var logNote = (note) => {
     console.log('---------------------');
-    console.log(`Title: ${note.title}`);
-    console.log(`Body: ${note.body}`);
+    console.log(`Title:  ${note.title}`);
+    console.log(`Body:  ${note.body}`);
     console.log('---------------------');
 };
 
