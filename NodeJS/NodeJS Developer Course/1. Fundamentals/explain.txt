@@ -1,0 +1,16 @@
+
+module.exports default () => console.log(`Hello Word`);
+
+{
+
+
+}
+-------------------------------
+
+const logger= require.('logger');
+
+logger.info()
+
+const { info }= require.('logger');
+
+info()
