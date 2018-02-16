@@ -1,7 +1,10 @@
-const request = require('request');
+//const request = require('request');
 const yargs = require('yargs');
-
-
+/********************************************** */
+/********************************************** */
+const geocode = require('./geocode/geocode.js');
+/********************************************** */
+/********************************************** */
 const argv = yargs
     .options({
         a: {
@@ -14,8 +17,24 @@ const argv = yargs
     .help()
     .alias('help', 'h')
     .argv;
-//Format Input
 
+//Format Input
+/********************************************** */
+/********************************************** */
+geocode.geocodeAddress(argv.address, (errorMessage, results) => {
+    if(errorMessage){
+        console.log(errorMessage);
+    }else{
+        console.log(JSON.stringify(results, undefined, 2));
+    }
+});
+/********************************************** */
+/********************************************** */
+/********************************************** */
+/********************************************** */
+/********************************************** */
+/********************************************** */
+/*...passado....
 var encodedAddress = encodeURIComponent(argv.address);
 
 request({
@@ -35,3 +54,4 @@ request({
         console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
     }
 });
+*/
