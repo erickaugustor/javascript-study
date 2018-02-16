@@ -2,7 +2,8 @@
 const yargs = require('yargs');
 /********************************************** */
 /********************************************** */
-const geocode = require('./geocode/geocode.js');
+const geocode = require('./geocode/geocode');
+const weather = require('./weather/weather');
 /********************************************** */
 /********************************************** */
 const argv = yargs
@@ -21,37 +22,28 @@ const argv = yargs
 //Format Input
 /********************************************** */
 /********************************************** */
-geocode.geocodeAddress(argv.address, (errorMessage, results) => {
+// geocode.geocodeAddress(argv.address, (errorMessage, results) => {
+//     if(errorMessage){
+//         console.log(errorMessage);
+//     }else{
+//         console.log(JSON.stringify(results, undefined, 2));
+//     }
+// });
+/********************************************** */
+/********************************************** */
+/********************************************** */
+/********************************************** */
+weather.getWeather(-22.8641069, -47.0216352, (errorMessage, weatherResults) => {
     if(errorMessage){
         console.log(errorMessage);
     }else{
-        console.log(JSON.stringify(results, undefined, 2));
+        console.log(JSON.stringify(weatherResults, undefined, 2));
     }
 });
-/********************************************** */
-/********************************************** */
-/********************************************** */
-/********************************************** */
-/********************************************** */
-/********************************************** */
-/*...passado....
-var encodedAddress = encodeURIComponent(argv.address);
 
-request({
-    url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
-    json: true
-}, (error, responde, body) => {
-    if(error){
-        console.log('Unable to connect to Google servers.');
-    } else if(body.status === 'ZERO_RESULTS'){
-        //ERRO DA GOOGLE API
-        //TESTAR OS DADOS
-        console.log('Unable to find that address.');
-    }else if(body.status === 'OK'){
-        //console.log(JSON.stringify(body, undefined, 2));
-        console.log(`Address: ${body.results[0].formatted_address}`);
-        console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
-        console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
-    }
-});
-*/
+
+//Wheather
+
+//API: e73bd52c2abe818763478e2bf908c58b
+//https://api.darksky.net/forecast/e73bd52c2abe818763478e2bf908c58b/[latitude],[longitude]
+//https://api.darksky.net/forecast/e73bd52c2abe818763478e2bf908c58b/-22.8641069,-47.0216352
