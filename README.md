@@ -1,11 +1,7 @@
 # javascript-study
 :ledger: 💥 My studies about JavaScript, using BabelJs and VanillaJs, and other things about front-end development 
-<br><br><br>
+<br><br>
 
--
--
--
--
 
 <br>
 <h3>NodeJS</h3>
@@ -14,7 +10,8 @@
 
 <p>  A proposta do NodeJS é rodar o JavaScript dentro da própria máquina, algo que só era feito no browser. Um standalone process, são programas autossuficientes, logo, não precisam de um software auxiliar para seu funcionamento (um interpretador).</p>
 <br>
-- Um programa escrito em C ou C++, como é o caso do NodeJS, depois de compilado e tornado executável, pode ser chamado de standalone, uma vez que só precisaria de bibliotecas, as quais poderiam ser anexadas fisicamente a ele, através de uma ligação estática. 
+
+ - Um programa escrito em C ou C++, como é o caso do NodeJS, depois de compilado e tornado executável, pode ser chamado de standalone, uma vez que só precisaria de bibliotecas, as quais poderiam ser anexadas fisicamente a ele, através de uma ligação estática. 
 
 <p>  Com a criação do Node, podemos utilizar a sintaxe do JavaScript para manipular arquivos do sistemas, diretórios, criar querys databases e até mesmo criar um serviço web. Essas coisas não eram possíveis no passado, com JavaScript, apenas foram possíveis com o avanço do Node. <i> E isso é possível por conta do V8, que escrito em C++, transforma em linguagem de máquina, por isso o Node é conhecido por ser muito rápido. </i></p>
 <br>
