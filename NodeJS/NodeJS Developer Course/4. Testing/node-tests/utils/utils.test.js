@@ -3,7 +3,10 @@ const expect = require('expect');
 
 const utils = require('./utils'); 
 
-it('should add two numbers', () => {
+
+
+describe('Utils', () => {
+    it('should add two numbers', () => {
     var res = utils.add(22, 11);
 
     expect(res).toBe(33).toBeA('number');
@@ -11,38 +14,41 @@ it('should add two numbers', () => {
     // if(res !== 33){
     //     throw new Error(`Expected 44, but got ${res}.`);
     // }
-});
-//bdd, behavior driven development 
-
-
-
-//async mocha test
-it('should async add two numbers', (done) => {
-    utils.asyncAdd(4, 3, (sum) =>{
-        expect(sum).toBe(7).toBeA('number');
-        done();
     });
-});
+    //bdd, behavior driven development 
 
-it('should async square two numbers', (done) => {
-    utils.asyncSquare(4, (square) =>{
-        expect(square).toBe(16).toBeA('number');
-        done();
+
+
+    //async mocha test
+    it('should async add two numbers', (done) => {
+        utils.asyncAdd(4, 3, (sum) =>{
+            expect(sum).toBe(7).toBeA('number');
+            done();
+        });
     });
-});
+
+    it('should async square two numbers', (done) => {
+        utils.asyncSquare(4, (square) =>{
+            expect(square).toBe(16).toBeA('number');
+            done();
+        });
+    });
 
 
-
-
-
-it('should square a number', () => {
+    it('should square a number', () => {
     var res = utils.square(3);
     
     expect(res).toBe(9).toBeA('number');
     // if(res !== 9){
     //     throw new Error(`Expected 44, but got ${res}.`);
     // }
+    });
+
+
 });
+
+
+
 
 
 it('should expect some values', ()  =>  {
