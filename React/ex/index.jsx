@@ -1,4 +1,18 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-ReactDOM.render(<h1>Olá React!</h1>, document.getElementById('app'));
+// import SilvaFamily from './silvaFamily';
+import Family from './family'
+import Member from './member'
+
+/* ReactDOM.render(
+  <SilvaFamily />,
+  document.getElementById('app'),
+); */
+
+ReactDOM.render(
+  <Family>
+      <Member name='Guilherme' lastName='Silva' />
+  </Family>,
+  document.getElementById('app')
+)
