@@ -1,14 +1,9 @@
-/* class Pessoa {
-  constructor(name) {
-    this.name = name;
-  }
+import 'react';
+import './estilo.css';
 
-  toString() {
-    return `Pessoa: ${this.name}`;
-  }
-} */
 
-import Pessoa from './pessoa';
+export default props => (
+  <h1>Olá</h1>
+)
 
-const pessoa = new Pessoa('Erick');
-console.log(pessoa.toString());
+console.log('Funcionou!');
