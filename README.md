@@ -1,8 +1,6 @@
 # javascript-study
 :ledger: 💥 My studies about JavaScript, using BabelJs and VanillaJs, and other things about front-end development 
-<br><br>
-
-
+<br>
 <br>
 <h3>NodeJS</h3>
 
@@ -23,4 +21,10 @@
  - Node usa uma tecnologia <b>non-blocking I/O</b>, é quando você lê algo e escreve, input/output. Isso poderia ser: escrever no banco de dados, realizar mudanças em algum arquivo, ou até mesmo fazer um request para algum seriço de API.
  <br>
 <p> A ação de I/O leva tempo, mas agora, non-blocking I/O é muito interessante, isso permite que enquanto um usuário esteja requisitando uma url do google, outro usuários podem requisitar acesso ao banco de dados, tudo isso sem necessariamente estar pronto. <b>As aplicações, geralmente</b>, são escritas da forma <b>blocking</b>, ou seja, sequencial, e quando escrevemos non-blocking code, são executados os serviços, de maneira que não podemos prever e nem assegurar a sequência dos mesmos, logo, seria muito mais rápido. </p>
-  
+<br>
+<h3>Webpack</h3>
+
+*O que é webpack?*
+
+<p> Um webpack funciona como um empacotador de código para web. Ele se propõe a modularizar sua aplicação, sua principal ideia é de code splitting, onde você diverge seu código em diversos arquivos, para no final convergir em um único arquivo.</p>
+<br>
